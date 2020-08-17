@@ -1,0 +1,44 @@
+<h1 style="text-align:center;margin-bottom:10px;font-weight: 100;color:rgb(43, 39, 39)">CORONA TRACKER</h1>
+<app-cards [totalconfirmed]="totalConfirmed" [totalactive]="totalActive" [totalrecovered]="totalRecovered" [totaldeaths]="totalDeaths"></app-cards>
+<div style="margin-bottom: 20px;"></div>
+<div class="radios">
+    <strong>Select the case type : </strong>
+    <div *ngFor="let r of radio1">
+        <input type="radio" value="{{r.hint}}" name="radio" #input (click)="func1(input)" [checked]="r.flag">{{r.name}}
+    </div>
+</div>
+<div>
+    <!-- <app-charts [input1]="dataT"></app-charts> -->
+    <!-- <router-outlet></router-outlet> -->
+    <!-- <ngx-charts-pie-chart
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="single"
+    [gradient]="gradient"
+    [labels]="showLabels"
+    [doughnut]="isDoughnut"
+    >
+  </ngx-charts-pie-chart> -->
+  <div style="display: flex;flex-wrap: wrap;justify-content: space-around;margin-top: 50px;">
+    <div class="media1">
+        <p style="text-align: center;font-weight: bold;margin-bottom:20px;">Pie-chart</p>
+            <canvas baseChart
+                    [data]="pieChartData"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType" 
+                    width="10"
+                    height="10"
+                ></canvas>
+      </div>
+      <div class="media1">
+        <p style="text-align: center;font-weight: bold;margin-bottom:20px;">Bar-chart</p>
+        <canvas baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+  </div>
+  </div>
+</div>

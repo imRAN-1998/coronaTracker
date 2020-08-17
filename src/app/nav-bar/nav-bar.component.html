@@ -1,0 +1,50 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </nav> -->
+  <div style="position: fixed;top:0;left:0;width:100%;background-color: white;z-index: 1000;" class="border22">
+  <div style="margin-top:10px"></div>
+  <div class="container">
+      <ul>
+            <div class="menu" style="cursor: pointer;" (click)="openSidebar(sidebar)"><i class="material-icons">menu</i></div>
+            <li routerLink="/"><div>Covid-19 updates</div></li>
+            <div class="menu1">
+                <li routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact:true}">Home</li>
+                <li routerLinkActive="active" routerLink="countries">Countries</li>
+            </div>
+            <div style="clear:right"></div>
+      </ul>
+  </div>
+  <div style="margin-top:10px"></div>
+  </div>
+  <div class="sidebar" #sidebar>
+    <li class="first"><i class="material-icons" >account_circle</i></li>
+    <hr>
+    <div style="margin-top: 30px;"></div>
+    <li class="li1"  routerLink="/"><i class="material-icons" >home</i></li>
+    <li class="li1"  routerLink="countries"><i class="material-icons">assistant_photo</i></li>
+    <li class="li1" style="padding-top:30px" (click)="closeSidebar(sidebar)"><i class="material-icons" style="margin-left:25px;font-size: 25px;">fast_rewind</i></li>
+  </div>
+
+
+  <div class="loaders" *ngIf="isloading">
+    <app-loaders></app-loaders>
+  </div>

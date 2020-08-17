@@ -1,0 +1,52 @@
+<h1 style="text-align:center;margin-bottom:10px;font-weight: 100;color:rgb(43, 39, 39)">COUNTRY WISE</h1>
+<div class="container">
+    <form>
+        <div>
+            <select name="countries" id="countries" #select1 (change)="changedSelect(select1)">
+                <option value="{{g.country}}" *ngFor="let g of globalData">{{g.country}}</option>
+            </select>
+        </div>
+    </form>
+</div>
+<div style="margin-bottom:50px"></div>
+
+
+<app-cards [totalactive]="active" [totalconfirmed]="confirmed" [totalrecovered]="recovered" [totaldeaths]="deaths"></app-cards>
+<div class="media1">
+    <canvas baseChart width="400" height="400"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                ></canvas>
+</div>
+<div style="margin-bottom:50px"></div>
+<div style="width: 80%;margin: auto;">
+    <table>
+        <thead>
+            <!-- <tr>
+                <th>S.No</th>
+                <th>Date</th>
+                <th>Cases</th>
+            </tr> -->
+        </thead>
+        <tbody>
+            <tr>
+                <div class="div1">
+                    <td class="td1">S.No</td>
+                    <td class="td1">Dates</td>
+                    <td class="td1">Cases</td>
+                </div>
+            </tr>
+            <tr *ngFor="let s of selectedCountryData;index as i" >
+                <div class="div1">
+                    <td class="td1"> {{i+1}}</td>
+                    <td class="td1"> {{s.date | date}}</td>
+                    <td class="td1"> {{s.cases}}</td>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+</div>
